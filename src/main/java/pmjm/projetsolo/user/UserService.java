@@ -23,14 +23,16 @@ public class UserService {
     public UserEntity createUser(UserEntity user){
         return repository.save(user);
     }
-
-
     public UserEntity updateUser(UserEntity user, Long id) {
         UserEntity existingUser =  repository.findById(id)
                 .orElseThrow();
         existingUser.setUsername(user.getUsername());
         existingUser.setEmail(user.getEmail());
         existingUser.setPassword(user.getPassword());
-        return  repository.save(user);
+        return  repository.save(existingUser);
+    }
+
+    public void deleteUser(Long id) {
+        repository.deleteById(id);
     }
 }
