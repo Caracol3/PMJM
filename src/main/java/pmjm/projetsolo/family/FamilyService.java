@@ -2,6 +2,7 @@ package pmjm.projetsolo.family;
 
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -11,9 +12,21 @@ public class FamilyService {
     public FamilyService(FamilyRepository familyRepository){
     this.repository = familyRepository;
     }
-    public List<FamilyEntity> getAll(){
 
-        return repository.findAll();
+    public List<FamilyDTO> getAll(){
+        List<FamilyEntity> families = repository.findAll();
+        if (families.isEmpty()) {
+            throw new RuntimeException("There is no family");
+        }
+        List<FamilyDTO> familiesDTO = new ArrayList<>();
+        families.forEach(family -> {
+            FamilyDTO familyDTO = new FamilyDTO();
+            familyDTO.setId(family.getId());
+            familyDTO.setUsername(family.getUsername());
+            familyDTO.setEmail(family.getEmail());
+            familiesDTO.add(familyDTO);
+        });
+        return familiesDTO;
     }
     public FamilyEntity getById(Long id) {
         return repository.findById(id)

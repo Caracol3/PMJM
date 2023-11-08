@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("/family") /*http://localhost:8080/users*/
@@ -13,7 +15,7 @@ import java.util.List;
 public class FamilyController {
     private final FamilyService service;
     @GetMapping
-    ResponseEntity<List<FamilyEntity>> getAll(){
+    ResponseEntity<List<FamilyDTO>> getAll(){
         return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
     }
 
