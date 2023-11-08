@@ -12,6 +12,7 @@ public class FamilyService {
     this.repository = familyRepository;
     }
     public List<FamilyEntity> getAll(){
+
         return repository.findAll();
     }
     public FamilyEntity getById(Long id) {

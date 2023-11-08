@@ -20,7 +20,7 @@ public class CategoryController {
         return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    ResponseEntity<CategoryEntity> getById(@PathVariable Long id){
+    ResponseEntity<CategoryEntity> getCategoryById(@PathVariable Long id){
         return new ResponseEntity<>(service.getById(id),HttpStatus.OK);
     }
     @PostMapping
