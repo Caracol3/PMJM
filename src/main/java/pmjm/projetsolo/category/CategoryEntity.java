@@ -1,22 +1,22 @@
-package pmjm.projetsolo.user;
+package pmjm.projetsolo.category;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.*;
-@RequiredArgsConstructor
-@Setter
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
 @Getter
+@Setter
+@RequiredArgsConstructor
 @Entity
-public class UserEntity {
+public class CategoryEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     public Long id;
 
-    public String username;
-    public String email;
-    public String password;
+    public String name;
 }
