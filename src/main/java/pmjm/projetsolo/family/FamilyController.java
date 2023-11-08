@@ -18,7 +18,7 @@ public class FamilyController {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<FamilyEntity> getById(@PathVariable Long id){
+    ResponseEntity<FamilyEntity> getFamilyById(@PathVariable Long id){
         return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 

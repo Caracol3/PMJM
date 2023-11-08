@@ -21,7 +21,7 @@ public class ChildrenController {
     }
 
     @GetMapping("{id}")
-    ResponseEntity<ChildrenEntity> getById(@PathVariable Long id) {
+    ResponseEntity<ChildrenEntity> getChildrenById(@PathVariable Long id) {
         return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 

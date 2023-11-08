@@ -21,7 +21,7 @@ public class ActivityController {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<ActivityEntity> findById(@PathVariable Long id){
+    ResponseEntity<ActivityEntity> findActivityById(@PathVariable Long id){
         return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 
