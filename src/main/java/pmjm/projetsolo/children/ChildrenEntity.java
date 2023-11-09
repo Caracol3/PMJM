@@ -1,12 +1,10 @@
 package pmjm.projetsolo.children;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import pmjm.projetsolo.family.FamilyEntity;
 
 import java.time.LocalDate;
 
@@ -14,6 +12,7 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @Entity
+@Table(name = "children")
 public class ChildrenEntity {
 
     @Id
@@ -23,4 +22,8 @@ public class ChildrenEntity {
     public String username;
     public LocalDate birthday;
     public String gender;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "family_id")
+    private FamilyEntity family;
 }

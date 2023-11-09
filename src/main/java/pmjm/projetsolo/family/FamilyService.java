@@ -28,20 +28,33 @@ public class FamilyService {
         });
         return familiesDTO;
     }
-    public FamilyEntity getById(Long id) {
-        return repository.findById(id)
-                .orElseThrow();
+    public FamilyDTO getById(Long id) {
+        FamilyEntity family = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("There is no family"));
+        FamilyDTO familyDTO = new FamilyDTO();
+        familyDTO.setId(family.getId());
+        familyDTO.setUsername(family.getUsername());
+        familyDTO.setEmail(family.getEmail());
+        return familyDTO;
+//        return repository.findById(id)
+//                .orElseThrow();
     }
     public FamilyEntity createUser(FamilyEntity family){
         return repository.save(family);
     }
-    public FamilyEntity updateUser(FamilyEntity family, Long id) {
+    public FamilyDTO updateUser(FamilyEntity family, Long id) {
         FamilyEntity existingFamily =  repository.findById(id)
-                .orElseThrow();
+                .orElseThrow(() -> new RuntimeException("There is no family"));
         existingFamily.setUsername(family.getUsername());
         existingFamily.setEmail(family.getEmail());
         existingFamily.setPassword(family.getPassword());
-        return  repository.save(existingFamily);
+        FamilyEntity updateFamily = repository.save(existingFamily);
+        FamilyDTO familyDTO = new FamilyDTO();
+        familyDTO.setId(updateFamily.getId());
+        familyDTO.setUsername(updateFamily.getUsername());
+        familyDTO.setEmail(updateFamily.getEmail());
+        return familyDTO;
+
     }
     public void deleteFamily(Long id) {
         repository.deleteById(id);

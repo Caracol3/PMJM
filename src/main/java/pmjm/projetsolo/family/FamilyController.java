@@ -20,7 +20,7 @@ public class FamilyController {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<FamilyEntity> getFamilyById(@PathVariable Long id){
+    ResponseEntity<FamilyDTO> getFamilyById(@PathVariable Long id){
         return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 
@@ -31,7 +31,7 @@ public class FamilyController {
     }
 
     @PutMapping("/{id}")
-    ResponseEntity<FamilyEntity> updateUser(@PathVariable Long id, @RequestBody FamilyEntity user){
+    ResponseEntity<FamilyDTO> updateUser(@PathVariable Long id, @RequestBody FamilyEntity user){
         return new ResponseEntity<>(service.updateUser(user, id), HttpStatus.OK);
     }
 
