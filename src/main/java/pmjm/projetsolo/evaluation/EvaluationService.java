@@ -28,7 +28,7 @@ public class EvaluationService {
         EvaluationEntity existingEvaluation = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("L'Id n° " + id + "is not found"));
         existingEvaluation.setNote(evaluation.getNote());
-        existingEvaluation.setCommentaire(evaluation.getCommentaire());
+        existingEvaluation.setComments(evaluation.getComments());
         return repository.save(existingEvaluation);
     }
 

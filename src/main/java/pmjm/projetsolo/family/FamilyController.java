@@ -32,15 +32,9 @@ public class FamilyController {
     return new ResponseEntity<>(service.createFamily(user), HttpStatus.CREATED);
     }
 
-    @PostMapping("/children")
-    ResponseEntity<FamilyEntity> createFamilyWithChildren(@RequestBody FamilyEntity family,@RequestBody Set<ChildrenEntity> children){
-
-        return new ResponseEntity<>(service.createFamilyWithChildren(family,children ), HttpStatus.CREATED);
-    }
-
     @PutMapping("/{id}")
     ResponseEntity<FamilyDTO> updateUser(@PathVariable Long id, @RequestBody FamilyEntity user){
-        return new ResponseEntity<>(service.updateUser(user, id), HttpStatus.OK);
+        return new ResponseEntity<>(service.updateFamily(user, id), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

@@ -18,14 +18,13 @@ public class ChildrenEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
-    public String username;
-    public LocalDate birthday;
-    public String gender;
+    private String username;
+    private LocalDate birthday;
+    private String gender;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "family_id")
     @JsonIgnoreProperties("children")
     private FamilyEntity family;
 }

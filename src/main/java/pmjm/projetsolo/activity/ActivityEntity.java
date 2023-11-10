@@ -20,14 +20,13 @@ public class ActivityEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
-    public String title;
-    public String description;
-    public int recommended_age;
+    private String title;
+    private String description;
+    private int recommendedAge;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "category_id")
     @JsonIgnoreProperties("activity")
     private CategoryEntity category;
 

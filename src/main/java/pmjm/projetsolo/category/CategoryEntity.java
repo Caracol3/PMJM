@@ -18,9 +18,9 @@ public class CategoryEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
-    public String name;
+    private String name;
 
     @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "category_id")

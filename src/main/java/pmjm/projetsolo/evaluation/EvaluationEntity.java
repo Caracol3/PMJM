@@ -17,18 +17,16 @@ public class EvaluationEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
-    public int note;
-    public String commentaire;
+    private int note;
+    private String comments;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "family_id")
     @JsonIgnoreProperties("evaluation")
     private FamilyEntity family;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "activity_id")
     @JsonIgnoreProperties("evaluation")
     private ActivityEntity activity;
 }

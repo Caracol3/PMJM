@@ -25,7 +25,7 @@ public class ActivityService {
                         .orElseThrow();
         existingActivity.setTitle(activity.getTitle());
         existingActivity.setDescription(activity.getDescription());
-        existingActivity.setRecommended_age(activity.getRecommended_age());
+        existingActivity.setRecommendedAge(activity.getRecommendedAge());
         return repository.save(existingActivity);
     }
 

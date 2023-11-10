@@ -17,17 +17,17 @@ public class FamilyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
-    public String username;
-    public String email;
-    public String password;
+    private String username;
+    private String email;
+    private String password;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade =  CascadeType.PERSIST)
     @JoinColumn(name = "family_id")
     private Set<ChildrenEntity> children = new HashSet<>();
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany( cascade = CascadeType.PERSIST)
     @JoinColumn(name = "family_id")
     private Set<EvaluationEntity> evaluation = new HashSet<>();
 }
