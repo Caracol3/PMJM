@@ -4,9 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pmjm.projetsolo.children.ChildrenEntity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @RequestMapping("/family") /*http://localhost:8080/users*/
 @RequiredArgsConstructor
@@ -25,9 +27,15 @@ public class FamilyController {
     }
 
     @PostMapping
-    ResponseEntity<FamilyEntity> createUser(@RequestBody FamilyEntity user){
+    ResponseEntity<FamilyEntity> createFamily(@RequestBody FamilyEntity user){
 
-    return new ResponseEntity<>(service.createUser(user), HttpStatus.CREATED);
+    return new ResponseEntity<>(service.createFamily(user), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/children")
+    ResponseEntity<FamilyEntity> createFamilyWithChildren(@RequestBody FamilyEntity family,@RequestBody Set<ChildrenEntity> children){
+
+        return new ResponseEntity<>(service.createFamilyWithChildren(family,children ), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")

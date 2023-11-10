@@ -1,5 +1,6 @@
 package pmjm.projetsolo.evaluation;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -23,9 +24,11 @@ public class EvaluationEntity {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "family_id")
+    @JsonIgnoreProperties("evaluation")
     private FamilyEntity family;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "activity_id")
+    @JsonIgnoreProperties("evaluation")
     private ActivityEntity activity;
 }

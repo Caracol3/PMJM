@@ -1,5 +1,6 @@
 package pmjm.projetsolo.activity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,7 @@ public class ActivityEntity {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "category_id")
+    @JsonIgnoreProperties("activity")
     private CategoryEntity category;
 
     @OneToMany(cascade = CascadeType.PERSIST)

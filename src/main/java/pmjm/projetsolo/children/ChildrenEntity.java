@@ -1,5 +1,6 @@
 package pmjm.projetsolo.children;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -25,5 +26,6 @@ public class ChildrenEntity {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "family_id")
+    @JsonIgnoreProperties("children")
     private FamilyEntity family;
 }
