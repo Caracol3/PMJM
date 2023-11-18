@@ -26,7 +26,7 @@ public class ActivityEntity {
     @Column(length = 1000)
     private String description;
     private String image;
-    @Column(length = 10000)
+    @Column(length = 500)
     private String tutorial;
     private String youtube_link;
     private int recommendedAge;

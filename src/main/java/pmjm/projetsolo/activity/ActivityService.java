@@ -16,6 +16,10 @@ public class ActivityService {
                 .orElseThrow();
     }
 
+    public List<ActivityEntity> getByCategoryId(Long categoryId) {
+        return repository.findByCategoryId(categoryId);
+    }
+
     public ActivityEntity createActivity(ActivityEntity activity) {
         return repository.save(activity);
     }
