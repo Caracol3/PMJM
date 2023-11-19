@@ -1,12 +1,11 @@
 package pmjm.projetsolo.children;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import pmjm.projetsolo.family.FamilyEntity;
 
 import java.time.LocalDate;
 
@@ -14,13 +13,18 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @Entity
+@Table(name = "children")
 public class ChildrenEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
-    public String username;
-    public LocalDate birthday;
-    public String gender;
+    private String username;
+    private LocalDate birthday;
+    private String gender;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JsonIgnoreProperties("children")
+    private FamilyEntity family;
 }

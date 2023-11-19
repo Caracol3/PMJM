@@ -16,6 +16,10 @@ public class ActivityService {
                 .orElseThrow();
     }
 
+    public List<ActivityEntity> getByCategoryId(Long categoryId) {
+        return repository.findByCategoryId(categoryId);
+    }
+
     public ActivityEntity createActivity(ActivityEntity activity) {
         return repository.save(activity);
     }
@@ -25,7 +29,7 @@ public class ActivityService {
                         .orElseThrow();
         existingActivity.setTitle(activity.getTitle());
         existingActivity.setDescription(activity.getDescription());
-        existingActivity.setRecommended_age(activity.getRecommended_age());
+        existingActivity.setRecommendedAge(activity.getRecommendedAge());
         return repository.save(existingActivity);
     }
 

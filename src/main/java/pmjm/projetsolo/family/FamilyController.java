@@ -4,7 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pmjm.projetsolo.children.ChildrenEntity;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @RequestMapping("/family") /*http://localhost:8080/users*/
 @RequiredArgsConstructor
@@ -13,24 +17,24 @@ import java.util.List;
 public class FamilyController {
     private final FamilyService service;
     @GetMapping
-    ResponseEntity<List<FamilyEntity>> getAll(){
+    ResponseEntity<List<FamilyDTO>> getAll(){
         return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<FamilyEntity> getFamilyById(@PathVariable Long id){
+    ResponseEntity<FamilyDTO> getFamilyById(@PathVariable Long id){
         return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 
     @PostMapping
-    ResponseEntity<FamilyEntity> createUser(@RequestBody FamilyEntity user){
+    ResponseEntity<FamilyEntity> createFamily(@RequestBody FamilyEntity user){
 
-    return new ResponseEntity<>(service.createUser(user), HttpStatus.CREATED);
+    return new ResponseEntity<>(service.createFamily(user), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    ResponseEntity<FamilyEntity> updateUser(@PathVariable Long id, @RequestBody FamilyEntity user){
-        return new ResponseEntity<>(service.updateUser(user, id), HttpStatus.OK);
+    ResponseEntity<FamilyDTO> updateUser(@PathVariable Long id, @RequestBody FamilyEntity user){
+        return new ResponseEntity<>(service.updateFamily(user, id), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

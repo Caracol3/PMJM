@@ -25,6 +25,11 @@ public class ActivityController {
         return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 
+    @GetMapping("category/{categoryId}")
+    ResponseEntity<List<ActivityEntity>> getActivityByCategoryId(@PathVariable Long categoryId){
+        return new ResponseEntity<>(service.getByCategoryId(categoryId), HttpStatus.OK);
+    }
+
     @PostMapping
     ResponseEntity<ActivityEntity> createActivity(@RequestBody ActivityEntity activity){
         return  new ResponseEntity<>(service.createActivity(activity), HttpStatus.CREATED);

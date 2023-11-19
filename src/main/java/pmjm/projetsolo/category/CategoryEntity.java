@@ -1,22 +1,28 @@
 package pmjm.projetsolo.category;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import pmjm.projetsolo.activity.ActivityEntity;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @RequiredArgsConstructor
 @Entity
+@Table(name = "category")
 public class CategoryEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
-    public String name;
+    private String name;
+
+    @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "category_id")
+    private Set<ActivityEntity> activity = new HashSet<>();
 }
