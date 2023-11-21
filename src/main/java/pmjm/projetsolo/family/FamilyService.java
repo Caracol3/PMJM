@@ -48,6 +48,13 @@ public class FamilyService {
         return repository.save(family);
     }
 
+    public void addCildrenToFamily(FamilyEntity Family, ChildrenEntity children){
+        if (Family != null && children != null){
+            Family.getChildren().add(children);
+            repository.save(Family);
+        }
+    }
+
     public FamilyDTO updateFamily(FamilyEntity family, Long id) {
         FamilyEntity existingFamily =  repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("There is no family"));
