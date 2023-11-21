@@ -6,6 +6,9 @@ import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pmjm.projetsolo.family.FamilyEntity;
+import pmjm.projetsolo.family.FamilyRepository;
+import pmjm.projetsolo.family.FamilyService;
 
 import java.util.List;
 
@@ -14,6 +17,7 @@ import java.util.List;
 @RestController
 public class ChildrenController {
     private final ChildrenService service;
+    private final FamilyService familyService;
 
     @GetMapping
     ResponseEntity<List<ChildrenEntity>> getAll() {
@@ -25,9 +29,9 @@ public class ChildrenController {
         return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 
-    @PostMapping
-    ResponseEntity<ChildrenEntity> createChildren(@RequestBody ChildrenEntity children) {
-        return new ResponseEntity<>(service.createChildren(children), HttpStatus.CREATED);
+    @PostMapping("/create/{familyId}")
+    ResponseEntity<FamilyEntity> createChildren(@RequestBody ChildrenEntity children, @PathVariable Long familyId) {
+        return new ResponseEntity<>(service.addChildToFamily(familyId, children), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")

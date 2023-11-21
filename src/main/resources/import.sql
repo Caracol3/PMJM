@@ -76,7 +76,7 @@ INSERT INTO activity (title, image,recommended_age, category_id) VALUES ('Licorn
 INSERT INTO activity (title, image,recommended_age, category_id) VALUES ('Licorne3', 'assets/card_pictures/coloring/licorne3.jpg',2, 3);
 INSERT INTO activity (title, image,recommended_age, category_id) VALUES ('Mandala', 'assets/card_pictures/coloring/mandala.jpg',2, 3);
 INSERT INTO activity (title, image,recommended_age, category_id) VALUES ('Mandala', 'assets/card_pictures/coloring/mandala1.jpg',2, 3);
-INSERT INTO activity (title, image,recommended_age, category_id) VALUES ('Mandala', 'assets/card_pictures/coloring/mandala2.jpg',2, 3);
+INSERT INTO activity (title, image,recommended_age, category_id) VALUES ('Mandala', 'assets/card_pictures/coloring/mandala2.png',2, 3);
 INSERT INTO activity (title, image,recommended_age, category_id) VALUES ('Mandala', 'assets/card_pictures/coloring/mandala3.jpg',2, 3);
 INSERT INTO activity (title, image,recommended_age, category_id) VALUES ('Mandala', 'assets/card_pictures/coloring/mandala4.jpg',2, 3);
 INSERT INTO activity (title, image,recommended_age, category_id) VALUES ('Mandala', 'assets/card_pictures/coloring/mandala5.jpg',2, 3);
