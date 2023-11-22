@@ -8,4 +8,6 @@ import java.util.List;
 @Repository
 public interface ActivityRepository extends JpaRepository<ActivityEntity,Long> {
     List<ActivityEntity> findByCategoryId(Long categoryId);
+
+    List<ActivityEntity> findByRecommendedAge(Integer recommendedAge);
 }

@@ -30,6 +30,11 @@ public class ActivityController {
         return new ResponseEntity<>(service.getByCategoryId(categoryId), HttpStatus.OK);
     }
 
+    @GetMapping("age/{age}")
+    public ResponseEntity<List<ActivityEntity>> getActivityByRecommendedAge(@PathVariable Integer age){
+        return new ResponseEntity<>(service.getByRecommendedAge(age), HttpStatus.OK);
+    }
+
     @PostMapping
     ResponseEntity<ActivityEntity> createActivity(@RequestBody ActivityEntity activity){
         return  new ResponseEntity<>(service.createActivity(activity), HttpStatus.CREATED);

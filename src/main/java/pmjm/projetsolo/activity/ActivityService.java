@@ -20,6 +20,10 @@ public class ActivityService {
         return repository.findByCategoryId(categoryId);
     }
 
+    public List<ActivityEntity> getByRecommendedAge(Integer age){
+        return repository.findByRecommendedAge(age);
+    }
+
     public ActivityEntity createActivity(ActivityEntity activity) {
         return repository.save(activity);
     }
